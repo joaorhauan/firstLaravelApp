@@ -12,9 +12,21 @@ class UserController extends Controller
         return User::all();
     }
 
+    public function listById(int $id)
+    {
+        return User::find($id);
+    }
+
     public function create(Request $req)
     {
         $data = $req->all();
         return User::create($data);
+    }
+
+    public function edit(Request $req, int $id)
+    {
+        $user = User::find($id);
+        $user->update($req->all());
+        return $user;
     }
 }

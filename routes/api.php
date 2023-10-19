@@ -17,6 +17,11 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [TestController::class, "helloWorld"]);
+
 Route::get('/users', [UserController::class, "list"]);
 
+Route::get('/users/{id}', [UserController::class, "listById"]);
+
 Route::post('/users','App\Http\Controllers\UserController@create');
+
+Route::patch('/users/{id}','App\Http\Controllers\UserController@edit');
