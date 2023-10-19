@@ -18,12 +18,17 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [TestController::class, "helloWorld"]);
 
-Route::get('/users', [UserController::class, "list"]);
+Route::prefix('users')->group(function()
+    {
+        Route::get('/', [UserController::class, "list"]);
 
-Route::get('/users/{id}', [UserController::class, "listById"]);
+        Route::get('/{id}', [UserController::class, "listById"]);
 
-Route::post('/users','App\Http\Controllers\UserController@create');
+        Route::post('/','App\Http\Controllers\UserController@create');
 
-Route::patch('/users/{id}','App\Http\Controllers\UserController@edit');
+        Route::patch('/{id}','App\Http\Controllers\UserController@edit');
 
-Route::delete('/users/{id}', [UserController::class, "delete"]);
+        Route::delete('/{id}', [UserController::class, "delete"]);
+
+    }
+);
