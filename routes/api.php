@@ -25,3 +25,5 @@ Route::get('/users/{id}', [UserController::class, "listById"]);
 Route::post('/users','App\Http\Controllers\UserController@create');
 
 Route::patch('/users/{id}','App\Http\Controllers\UserController@edit');
+
+Route::delete('/users/{id}', [UserController::class, "delete"]);

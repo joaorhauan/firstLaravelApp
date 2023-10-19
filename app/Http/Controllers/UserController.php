@@ -29,4 +29,11 @@ class UserController extends Controller
         $user->update($req->all());
         return $user;
     }
+
+    public function delete(int $id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return $user;
+    }
 }
