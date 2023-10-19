@@ -9,12 +9,12 @@ class UserController extends Controller
 {
     public function list()
     {
-        return User::all();
+        return User::all()->load('posts');
     }
 
     public function listById(int $id)
     {
-        return User::find($id);
+        return User::find($id)->load('posts');
     }
 
     public function create(Request $req)

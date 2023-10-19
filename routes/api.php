@@ -38,10 +38,7 @@ Route::prefix('posts')->group(function()
     {
         Route::get('/', [PostController::class, "list"]);
 
-        // Route::get('/{id}', [PostController::class, "listById"]);
-
-        Route::get('/{id}', 'App\Http\Controllers\PostController@listById');
-
+        Route::get('/{id}', [PostController::class, "listById"]);
 
         Route::post('/', [PostController::class, "create"]);
 

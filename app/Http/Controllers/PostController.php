@@ -9,12 +9,12 @@ class PostController extends Controller
 {
     public function list()
     {
-        return Post::all();
+        return Post::all()->load('user');
     }
 
     public function listById(int $id)
     {
-        return Post::find($id);
+        return Post::find($id)->load('user');
     }
 
     public function create(Request $req)
