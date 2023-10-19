@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,29 @@ Route::prefix('users')->group(function()
 
         Route::get('/{id}', [UserController::class, "listById"]);
 
-        Route::post('/','App\Http\Controllers\UserController@create');
+        Route::post('/', [UserController::class, "create"]);
 
-        Route::patch('/{id}','App\Http\Controllers\UserController@edit');
+        Route::patch('/{id}', [UserController::class, "edit"]);
 
         Route::delete('/{id}', [UserController::class, "delete"]);
+
+    }
+);
+
+Route::prefix('posts')->group(function()
+    {
+        Route::get('/', [PostController::class, "list"]);
+
+        // Route::get('/{id}', [PostController::class, "listById"]);
+
+        Route::get('/{id}', 'App\Http\Controllers\PostController@listById');
+
+
+        Route::post('/', [PostController::class, "create"]);
+
+        Route::patch('/{id}', [PostController::class, "edit"]);
+
+        Route::delete('/{id}', [PostController::class, "delete"]);
 
     }
 );

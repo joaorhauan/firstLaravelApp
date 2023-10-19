@@ -32,3 +32,38 @@ Content-Type: application/json
 ###
 
 DELETE http://127.0.0.1:8000/api/users/1
+
+###
+
+http://127.0.0.1:8000/api/posts
+
+
+###
+
+http://127.0.0.1:8000/api/posts/2
+
+###
+
+POST http://127.0.0.1:8000/api/posts
+content-type: application/json
+
+{
+    "user_id": 2,
+    "title": "Título 1",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu convallis massa. Fusce feugiat nibh in ex suscipit, eu rhoncus sem semper. Fusce egestas sapien magna, ut vulputate erat consectetur mollis. Maecenas eu condimentum ligula, eget lacinia ligula. Fusce vitae nunc hendrerit, efficitur risus quis, volutpat eros. Fusce sit amet nisi nisl. Etiam ornare, magna sed aliquet imperdiet, nisl enim sodales eros, eget aliquet justo tortor nec ex. Proin nec eleifend enim. Praesent accumsan vehicula lorem at rhoncus. Ut sed ultrices magna. Nam congue dapibus libero, id auctor leo ullamcorper quis. In malesuada nunc turpis, ut fringilla purus blandit nec."
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/posts/1
+Content-Type: application/json
+
+{
+    "title": "novo título"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/posts/1
+
+###
